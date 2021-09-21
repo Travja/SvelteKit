@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<script>
+			const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+			if (currentTheme)
+				document.documentElement.setAttribute('data-theme', currentTheme);
+			setTimeout(() => document.body.classList.add("transitions-enabled"), 1000);
+		</script>
+
+		%svelte.head%
+	</head>
+	<body>
+		<div id="svelte">%svelte.body%</div>
+	</body>
+</html>

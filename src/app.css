@@ -1,0 +1,208 @@
+@import '@fontsource/fira-mono';
+
+:root {
+    font-family: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --font-mono: 'Fira Mono', monospace;
+    --pure-white: #ffffff;
+    --primary-color: #b9c6d2;
+    --secondary-color: #d0dde9;
+    --tertiary-color: #edf0f8;
+    --accent-color: #ff3e00;
+    --heading-color: var(--fg-color);
+    --text-color: #444444;
+    --background-without-opacity: rgba(255, 255, 255, 0.7);
+    --column-width: 42rem;
+    --column-margin-top: 4rem;
+
+    /* My styles */
+    --link-color: rgb(0, 100, 200);
+    --link-visited: rgb(1, 82, 164);
+    --bg-color: #eee;
+    --fg-color: #333;
+    --disabled-fg-color: #666;
+    --button-bg-color: #f4f4f4;
+    --button-fg-color: #333;
+    --button-clicked: #ddd;
+    --accent-color: #ff4040;
+}
+
+:root[data-theme="dark"] {
+    --link-color: aqua;
+    --link-visited: #00b0b0;
+    --bg-color: #444;
+    --fg-color: #eee;
+    --disabled-fg-color: #bbb;
+    --button-bg-color: #2e2e2e;
+    --button-fg-color: #eee;
+    --button-clicked: #4a4a4a;
+    --accent-color: #caff93;
+}
+
+html, body {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+body {
+    color: var(--fg-color);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.transitions-enabled {
+    transition-property: color, background-color;
+    transition-duration: .3s;
+    transition-timing-function: ease-in-out;
+}
+
+body {
+    /*background-color: var(--primary-color);*/
+    /*background: linear-gradient(*/
+    /*        180deg,*/
+    /*        var(--primary-color) 0%,*/
+    /*        var(--secondary-color) 10.45%,*/
+    /*        var(--tertiary-color) 41.35%*/
+    /*);*/
+}
+
+body::before {
+    content: '';
+    width: 80vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 10vw;
+    z-index: -1;
+    background: radial-gradient(
+            50% 50% at 50% 50%,
+            var(--pure-white) 0%,
+            rgba(255, 255, 255, 0) 100%
+    );
+    opacity: 0.05;
+}
+
+#svelte {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1,
+h2,
+p {
+    font-weight: 400;
+    color: var(--heading-color);
+}
+
+p {
+    line-height: 1.5;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1rem;
+}
+
+pre {
+    font-size: 16px;
+    font-family: var(--font-mono);
+    background-color: rgba(255, 255, 255, 0.45);
+    border-radius: 3px;
+    box-shadow: 2px 2px 6px rgb(255 255 255 / 25%);
+    padding: 0.5em;
+    overflow-x: auto;
+    color: var(--text-color);
+}
+
+input,
+button {
+    font-size: inherit;
+    font-family: inherit;
+}
+
+button:focus:not(:focus-visible) {
+    outline: none;
+}
+
+@media (min-width: 720px) {
+    h1 {
+        font-size: 2.4rem;
+    }
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:visited {
+    color: var(--link-visited);
+}
+
+label {
+    display: block;
+}
+
+input, button, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    -webkit-padding: 0.4em 0;
+    padding: 0.4em;
+    margin: 0 0 0.5em 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+}
+
+input[type="range"] {
+    padding: 0;
+}
+
+input:disabled {
+    color: #ccc;
+}
+
+button {
+    color: var(--button-fg-color);
+    background-color: var(--button-bg-color);
+    outline: none;
+
+    transition-property: color, text-shadow, background-color;
+    transition-duration: .3s;
+    transition-timing-function: ease-in-out;
+}
+
+button:disabled {
+    color: #999;
+}
+
+button:not(:disabled):active {
+    background-color: var(--button-clicked);
+}
+
+button:focus {
+    border-color: #666;
+}
+
+.spacer {
+    flex-grow: 100;
+}
