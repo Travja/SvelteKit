@@ -3,12 +3,13 @@
     import CloseButton from '$lib/ui/CloseButton.svelte';
     import {createEventDispatcher} from 'svelte';
     import {fly, fade} from 'svelte/transition';
+    import StatusIndicator from "$lib/bugs/StatusIndicator.svelte";
 
     export let status = "Unconfirmed";
     export let title = "Untitled";
     export let description = "No description.";
     export let comments = [];
-    export let key = {};
+    export const key = {};
 
     const dispatch = createEventDispatcher();
 
@@ -52,8 +53,9 @@
      in:fly={{ x: -200, duration: 500 }} out:fly={{ x: -200, duration: 250 }}>
     <CloseButton on:click={closeClicked}/>
     <div class="content">
-        <div class="centered">
-            <h3>{title}</h3>
+        <div class="">
+            <h3 class="centered">{title}</h3>
+            <h4>Status: <StatusIndicator {status}/></h4>
             <hr>
             <div class="desc">
                 <div class="edit" on:click={editDescription}>Edit</div>
@@ -116,6 +118,9 @@
 
     .centered {
         text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .desc {
@@ -151,6 +156,5 @@
         display: flex;
         flex-grow: 1;
         align-items: flex-end;
-        justify-content: center;
     }
 </style>
